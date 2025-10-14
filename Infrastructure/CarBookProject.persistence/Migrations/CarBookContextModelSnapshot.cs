@@ -47,6 +47,31 @@ namespace CarBookProject.Persistence.Migrations
                     b.ToTable("Abouts");
                 });
 
+            modelBuilder.Entity("CarBookProject.Domain.Entities.Author", b =>
+                {
+                    b.Property<int>("AuthorId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuthorId"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AuthorId");
+
+                    b.ToTable("Authors");
+                });
+
             modelBuilder.Entity("CarBookProject.Domain.Entities.Banner", b =>
                 {
                     b.Property<int>("BannerId")
@@ -74,6 +99,40 @@ namespace CarBookProject.Persistence.Migrations
                     b.HasKey("BannerId");
 
                     b.ToTable("Banners");
+                });
+
+            modelBuilder.Entity("CarBookProject.Domain.Entities.Blog", b =>
+                {
+                    b.Property<int>("BlogId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogId"));
+
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CoverImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("BlogId");
+
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("CarBookProject.Domain.Entities.Brand", b =>
@@ -202,17 +261,12 @@ namespace CarBookProject.Persistence.Migrations
                     b.Property<int>("CarId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("CarPricingId1")
-                        .HasColumnType("int");
-
                     b.Property<int>("PricingId")
                         .HasColumnType("int");
 
                     b.HasKey("CarPricingId");
 
                     b.HasIndex("CarId");
-
-                    b.HasIndex("CarPricingId1");
 
                     b.HasIndex("PricingId");
 
@@ -348,7 +402,7 @@ namespace CarBookProject.Persistence.Migrations
                     b.ToTable("Pricings");
                 });
 
-            modelBuilder.Entity("CarBookProject.Domain.Entities.Services", b =>
+            modelBuilder.Entity("CarBookProject.Domain.Entities.Service", b =>
                 {
                     b.Property<int>("ServicesId")
                         .ValueGeneratedOnAdd()
@@ -381,14 +435,17 @@ namespace CarBookProject.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SocialMediaId"));
 
-                    b.Property<int>("Icon")
-                        .HasColumnType("int");
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Name")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Url")
-                        .HasColumnType("int");
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SocialMediaId");
 
@@ -422,6 +479,25 @@ namespace CarBookProject.Persistence.Migrations
                     b.HasKey("TestimonialId");
 
                     b.ToTable("Testimonials");
+                });
+
+            modelBuilder.Entity("CarBookProject.Domain.Entities.Blog", b =>
+                {
+                    b.HasOne("CarBookProject.Domain.Entities.Author", "Author")
+                        .WithMany("Blogs")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarBookProject.Domain.Entities.Category", "Category")
+                        .WithMany("Blogs")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("CarBookProject.Domain.Entities.Car", b =>
@@ -473,10 +549,6 @@ namespace CarBookProject.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CarBookProject.Domain.Entities.CarPricing", null)
-                        .WithMany("CarPricings")
-                        .HasForeignKey("CarPricingId1");
-
                     b.HasOne("CarBookProject.Domain.Entities.Pricing", "Pricing")
                         .WithMany()
                         .HasForeignKey("PricingId")
@@ -486,6 +558,11 @@ namespace CarBookProject.Persistence.Migrations
                     b.Navigation("Car");
 
                     b.Navigation("Pricing");
+                });
+
+            modelBuilder.Entity("CarBookProject.Domain.Entities.Author", b =>
+                {
+                    b.Navigation("Blogs");
                 });
 
             modelBuilder.Entity("CarBookProject.Domain.Entities.Brand", b =>
@@ -502,9 +579,9 @@ namespace CarBookProject.Persistence.Migrations
                     b.Navigation("CarPricings");
                 });
 
-            modelBuilder.Entity("CarBookProject.Domain.Entities.CarPricing", b =>
+            modelBuilder.Entity("CarBookProject.Domain.Entities.Category", b =>
                 {
-                    b.Navigation("CarPricings");
+                    b.Navigation("Blogs");
                 });
 
             modelBuilder.Entity("CarBookProject.Domain.Entities.Feature", b =>

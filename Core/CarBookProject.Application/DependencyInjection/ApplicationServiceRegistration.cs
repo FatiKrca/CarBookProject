@@ -37,12 +37,14 @@ namespace CarBookProject.Application.DependencyInjection
             services.AddScoped<RemoveBrandCommandHandler>();
 
 
+
             services.AddScoped<GetCarQueryHandler>();
             services.AddScoped<GetCarWithBrandQueryHandler>();
             services.AddScoped<GetCarByIdQueryHandler>();
             services.AddScoped<CreateCarCommandHandler>();
             services.AddScoped<UpdateCarCommandHandler>();
             services.AddScoped<RemoveCarCommandHandler>();
+            services.AddScoped<GetLast5CarsWithBrandQueryHandler>();
 
             services.AddScoped<GetCategoryQueryHandler>();
             services.AddScoped<GetCategoryByIdQueryHandler>();

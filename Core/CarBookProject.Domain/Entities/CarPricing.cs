@@ -15,7 +15,7 @@ namespace CarBookProject.Domain.Entities
         public Pricing Pricing { get; set; }
 
         public decimal Amount { get; set; }
-        public List<CarPricing> CarPricings { get; set; }
+        //public List<CarPricing> CarPricings { get; set; }
 
     }
 }
