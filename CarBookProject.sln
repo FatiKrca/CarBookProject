@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -16,6 +16,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBookProject.WebApi", "Presentation\CarBookProject.WebApi\CarBookProject.WebApi.csproj", "{4BCBBCBA-DFB4-490E-9CC6-979E097DC607}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBookProject.Application", "Core\CarBookProject.Application\CarBookProject.Application.csproj", "{13C8B0EF-66ED-499D-906F-3586F72A42C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{8A51D70C-27B6-4D47-B8D5-6565827A83FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarBookProject.WebUI", "Frontends\CarBookProject.WebUI\CarBookProject.WebUI.csproj", "{6C7B3080-83DF-444C-8161-E1A58E733016}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,10 @@ Global
 		{13C8B0EF-66ED-499D-906F-3586F72A42C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13C8B0EF-66ED-499D-906F-3586F72A42C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13C8B0EF-66ED-499D-906F-3586F72A42C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C7B3080-83DF-444C-8161-E1A58E733016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C7B3080-83DF-444C-8161-E1A58E733016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C7B3080-83DF-444C-8161-E1A58E733016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C7B3080-83DF-444C-8161-E1A58E733016}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{35469827-18CA-4002-A1E0-1E7A8515ADD8} = {E68E0663-EB81-42BC-B4F7-B1FB444EC8CA}
 		{4BCBBCBA-DFB4-490E-9CC6-979E097DC607} = {6C109438-DBF1-450C-B8DE-2B06131CB5F0}
 		{13C8B0EF-66ED-499D-906F-3586F72A42C1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{6C7B3080-83DF-444C-8161-E1A58E733016} = {8A51D70C-27B6-4D47-B8D5-6565827A83FC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C0B1F750-7863-4338-9513-E331AEC4917F}
