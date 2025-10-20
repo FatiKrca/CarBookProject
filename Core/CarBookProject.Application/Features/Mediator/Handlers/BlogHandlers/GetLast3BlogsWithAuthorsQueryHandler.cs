@@ -35,7 +35,8 @@ namespace CarBookProject.Application.Blogs.Mediator.Handlers.BlogHandlers
                 AuthorName = x.Author.Name,
                 AuthorImageUrl = x.Author.ImageUrl,
                 AuthorDescription = x.Author.Description,
-                
+                Description = x.Description,
+
 
 
 

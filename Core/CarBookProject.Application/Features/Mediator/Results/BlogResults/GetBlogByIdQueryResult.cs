@@ -11,6 +11,8 @@ namespace CarBookProject.Application.Blogs.Mediator.Results.BlogResults
         public int BlogId { get; set; }
         public string Title { get; set; } = null!;
         public string CoverImageUrl { get; set; }
+        public string Description { get; set; }
+
         public DateTime CreatedDate { get; set; }
 
         // FK + Navigation (Author)

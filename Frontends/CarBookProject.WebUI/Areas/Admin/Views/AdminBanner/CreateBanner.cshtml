@@ -1,0 +1,47 @@
+﻿@model CreateBannerDto
+
+@{
+	ViewData["Title"] = "CreateBanner";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+
+						<h4 class="card-title">Yeni Banner Bilgisi</h4>
+						<p class="card-subtitle mb-4">Banner ile ilgili bilgileri eksiksiz doldurmanız önemlidir. Veri Girişinden sonra Kaydet butonuna basınız. Banner alanı oluşturdak sonra eskisini silin. Sadece 1 banner verisi olmalı</p>
+
+						<form method="post">
+
+							<div class="form-group">
+								<label for="exampleInputTitle">Başlık</label>
+								<input type="text" class="form-control" id="exampleInputTitle" asp-for="Title" placeholder="Başlık Giriniz">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputDescription">Açıklama</label>
+								<input type="text" class="form-control" id="exampleInputDescription" asp-for="Description" placeholder="Açıklama Giriniz">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputVideoUrl">Video URL</label>
+								<input type="text" class="form-control" id="exampleInputVideoUrl" asp-for="VideoUrl" placeholder="Video URL Giriniz">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputVideoDescription">Video Açıklama</label>
+								<input type="text" class="form-control" id="exampleInputVideoDescription" asp-for="VideoDescription" placeholder="Video Açıklama Giriniz">
+							</div>
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Kaydet</button>
+						</form>
+
+					</div> <!-- end card-body-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -36,7 +36,12 @@ namespace CarBookProject.WebApi.Controllers
             var values = await _mediator.Send(new GetAllBlogsWithAuthorsQuery());
             return Ok(values);
         }
-
+        [HttpGet("GetBlogByAuthorId/{id}")]
+        public async Task<IActionResult> GetBlogByAuthorId(int id)
+        {
+            var values = await _mediator.Send(new GetBlogByAuthorIdQuery(id));
+            return Ok(values);
+        }
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByBlog(int id)
         {
@@ -50,7 +55,7 @@ namespace CarBookProject.WebApi.Controllers
             return Ok("Eklend,");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveBlog(int id)
         {
             await _mediator.Send(new RemoveBlogCommand(id));

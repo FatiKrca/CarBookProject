@@ -7,6 +7,7 @@ namespace CarBookProject.Domain.Entities
         public int BlogId { get; set; }
         public string Title { get; set; } = null!;
         public string CoverImageUrl { get; set; }  
+        public string Description { get; set; }  
         public DateTime CreatedDate { get; set; }
 
         // FK + Navigation (Author)
@@ -16,6 +17,8 @@ namespace CarBookProject.Domain.Entities
         // FK + Navigation (Category)
         public int CategoryId { get; set; }
         public Category Category { get; set; }  
+        public List<TagCloud> TagClouds { get; set; }  
+        public List<Comment> Comments { get; set; }  
 
     }
 }

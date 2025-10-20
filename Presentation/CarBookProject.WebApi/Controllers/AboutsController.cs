@@ -45,7 +45,7 @@ namespace CarBookProject.WebApi.Controllers
             await _createAboutCommandHandler.Handle(command);
             return Ok("Eklendi");
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveAbout(int id)
         {
             await _removeAboutCommandHandler.Handle(new RemoveAboutCommand(id));

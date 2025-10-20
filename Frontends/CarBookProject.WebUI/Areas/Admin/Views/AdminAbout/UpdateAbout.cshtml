@@ -1,0 +1,45 @@
+﻿@model UpdateAboutDto
+@{
+    ViewData["Title"] = "UpdateAbout";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+
+
+<div class="page-content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="card">
+					<div class="card-body">
+
+						<h4 class="card-title">About Bilgisi</h4>
+						<p class="card-subtitle mb-4">About ile ilgili bilgileri eksiksiz doldurmanız önemlidir. Veri Girişinden sonra Kaydet butonuna basınız. About alanı oluşturdak sonra eskisini silin. Sadece 1 About verisi olmalı</p>
+
+						<form method="post">
+							<input type="hidden" asp-for="AboutId" />
+
+							<div class="form-group">
+								<label for="exampleInputTitle">Başlık</label>
+								<input type="text" class="form-control" id="exampleInputTitle" asp-for="Title" placeholder="Başlık Giriniz">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputDescription">Açıklama</label>
+								<textarea rows="5" class="form-control" asp-for="Description"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputImageUrl">Resim URL</label>
+								<input type="text" class="form-control" id="exampleInputImageUrl" asp-for="ImageUrl" placeholder="Resim URL Giriniz">
+							</div>
+
+							<button type="submit" class="btn btn-primary waves-effect waves-light">Kaydet</button>
+						</form>
+
+					</div> <!-- end card-body-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

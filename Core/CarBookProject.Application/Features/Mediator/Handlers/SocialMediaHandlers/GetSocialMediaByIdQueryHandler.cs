@@ -26,7 +26,9 @@ namespace CarBookProject.Application.Features.Mediator.Handlers.SocialMediaHandl
             return new GetSocialMediaByIdQueryResult
             {
                 SocialMediaId = value.SocialMediaId,
-                Name = value.Name
+                Name = value.Name,
+                Icon=value.Icon,
+                Url=value.Url
 
             };
         }

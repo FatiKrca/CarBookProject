@@ -13,8 +13,14 @@ namespace CarBookProject.Application.Blogs.Mediator.Results.BlogResults
         public string Title { get; set; } = null!;
 
         public string AuthorName { get; set; }
+        public string AuthorDescription { get; set; }
+        public string AuthorImageUrl { get; set; }
+
+
+
         public string CategoryName { get; set; }
         public int AuthorId { get; set; }
+        public string Description { get; set; }
 
 
         public string CoverImageUrl { get; set; }
